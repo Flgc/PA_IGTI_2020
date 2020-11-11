@@ -14,7 +14,7 @@ class Cliente extends Base {
     host: '127.0.0.1',
     user: 'root',
     password: '',
-    database: 'teste',
+    database: 'aulajpa',
   });
   // let p1 = new Pessoa();
   // await p1.findOne(1);

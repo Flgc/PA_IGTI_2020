@@ -16,8 +16,16 @@ export function connectOn(config: iConfigDB): Promise<Boolean> {
         resolve(true);
       }
     });
-    resolve(true);
   });
 }
 
-export function connectOFF() {}
+export function connectOFF(): Promise<Boolean> {
+  return new Promise((resolve) => {
+    if (_Pool) {
+      console.log('Conexão encerrada com sucesso');
+      _Pool.end();
+    }
+
+    resolve(true);
+  });
+}
