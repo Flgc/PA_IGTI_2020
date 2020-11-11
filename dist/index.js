@@ -9,13 +9,29 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const model_1 = require("./model");
+const mysql_1 = require("./dao/mysql");
 class Pessoa extends model_1.Base {
     constructor() {
         super(...arguments);
         this.nome_tabela = 'pessoa';
     }
 }
+class Cliente extends model_1.Base {
+    constructor() {
+        super(...arguments);
+        this.nome_tabela = 'cliente';
+    }
+}
 (() => __awaiter(this, void 0, void 0, function* () {
-    let p1 = new Pessoa();
-    yield p1.findOne(1);
+    yield mysql_1.connectOn({
+        host: '127.0.0.1',
+        user: 'root',
+        password: '',
+        database: 'teste',
+    });
+    // let p1 = new Pessoa();
+    // await p1.findOne(1);
+    let c1 = new Cliente();
+    c1.findOne(5);
+    yield mysql_1.connectOFF();
 }))();
