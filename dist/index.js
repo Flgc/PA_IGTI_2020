@@ -10,10 +10,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const model_1 = require("./model");
 const mysql_1 = require("./dao/mysql");
-class Pessoa extends model_1.Base {
+class PessoaP extends model_1.Base {
     constructor() {
         super(...arguments);
-        this.nome_tabela = 'pessoa';
+        this.nome_tabela = 'Pessoa';
+        this.email = '';
+        this.nome = '';
     }
 }
 class Cliente extends model_1.Base {
@@ -27,11 +29,12 @@ class Cliente extends model_1.Base {
         host: '127.0.0.1',
         user: 'root',
         password: '',
-        database: 'aulajpa',
+        database: 'teste',
     });
-    // let p1 = new Pessoa();
-    // await p1.findOne(1);
-    let c1 = new Cliente();
-    c1.findOne(5);
+    let p1 = new PessoaP();
+    yield p1.findOne(2);
+    console.log('Meu nome é ', p1.nome + ' Email: ', p1.email);
+    // let c1 = new Cliente();
+    // c1.findOne(5);
     yield mysql_1.connectOFF();
 }))();

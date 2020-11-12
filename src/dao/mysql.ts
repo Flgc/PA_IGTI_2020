@@ -1,7 +1,7 @@
 import { createPool, Pool } from 'mysql';
 import { iConfigDB } from '../interface';
 
-let _Pool: Pool;
+export let _Pool: Pool;
 
 export function connectOn(config: iConfigDB): Promise<Boolean> {
   return new Promise((resolve) => {
